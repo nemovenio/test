@@ -1,0 +1,1 @@
+{"version":2,"defaults":{},"active":true,"requestTypes":"all","preprocessors":[],"exceptions":[],"providers":{},"test":[{"id":"test","kind":"raw","match":"&pkey=([a-z0-9]*)","action":{},"type":"remove"}],"urlPattern":"^https?:\\/\\/(?:[a-z0-9-]+\\.)*?pornhub\\.com\\/view\\_video\\.php\\?viewkey\\=([a-z0-9]*)","forceRedirection":true,"rules":{}}

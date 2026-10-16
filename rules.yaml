@@ -7,11 +7,11 @@ defaults:
   exceptions: []
 
 providers:
-  example:
+  test:
     urlPattern: '^https?:\/\/(?:[a-z0-9-]+\.)*?pornhub\.com\/view\_video\.php\?viewkey\=([a-z0-9]*)'
     forceRedirection: true
     rules:
-      - id: 'test'
+    - id: 'test'
         kind: raw
         match: '&pkey=([a-z0-9]*)'
         action:
