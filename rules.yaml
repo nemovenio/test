@@ -8,7 +8,7 @@ defaults:
 
 providers:
   test:
-    urlPattern: '^https?:\/\/(?:[a-z0-9-]+\.)*?pornhub\.com\/view\_video\.php\?viewkey\=([a-z0-9]*)'
+    urlPattern: '^https?:\/\/www\.pornhub\.com\/view\_video\.php\?viewkey\=([a-z0-9]*)'
     forceRedirection: true
     rules:
     - id: 'test'
