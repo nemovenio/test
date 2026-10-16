@@ -1,0 +1,32 @@
+version: 2
+
+defaults:
+  active: true
+  requestTypes: all
+  preprocessors: []
+  exceptions: []
+
+providers:
+  example:
+    urlPattern: '^https?:\/\/(?:[a-z0-9-]+\.)*?example\.com'
+    forceRedirection: true
+    rules:
+      - utm_source
+      - id: 'referral-tag'
+        match: 'tag'
+        referralMarketing: true
+      - id: 'raw-ref'
+        kind: raw
+        match: '/ref=([^/?]*)'
+        action:
+          type: rewrite
+          replacePattern: '/clean/§1§'
+      - id: 'redirect-target'
+        kind: redirection
+        match: '^https?:\/\/(?:[a-z0-9-]+\.)*?example\.com\/go\?.*target=([^&]+)'
+        preprocessors:
+          - type: doubleUrlDecode
+            inputs: [1]
+        action:
+          type: redirect
+          replacePattern: '§1§'
