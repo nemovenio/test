@@ -8,25 +8,11 @@ defaults:
 
 providers:
   example:
-    urlPattern: '^https?:\/\/(?:[a-z0-9-]+\.)*?example\.com'
+    urlPattern: '^https?:\/\/(?:[a-z0-9-]+\.)*?pornhub\.com\/view\_video\.php\?viewkey\=([a-z0-9]*)'
     forceRedirection: true
     rules:
-      - utm_source
-      - id: 'referral-tag'
-        match: 'tag'
-        referralMarketing: true
-      - id: 'raw-ref'
+      - id: 'test'
         kind: raw
-        match: '/ref=([^/?]*)'
+        match: '&pkey=([a-z0-9]*)'
         action:
-          type: rewrite
-          replacePattern: '/clean/§1§'
-      - id: 'redirect-target'
-        kind: redirection
-        match: '^https?:\/\/(?:[a-z0-9-]+\.)*?example\.com\/go\?.*target=([^&]+)'
-        preprocessors:
-          - type: doubleUrlDecode
-            inputs: [1]
-        action:
-          type: redirect
-          replacePattern: '§1§'
+          type: remove
